@@ -17,12 +17,27 @@
 
 .board {
     display: grid;
-    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    grid-template-columns: repeat(3, auto);
     margin: 20px;
 }
 
 .cell {
     width: var(--default-cell-size);
     height: var(--default-cell-size);
-    border: 1px solid black;
+    margin: 0;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.cell1, .cell2, .cell3 {
+    border-top: none;
+} 
+.cell:nth-child(3n +1) {
+    border-left: none;
+}
+.cell:nth-child(3n + 3) {
+    border-right: none;
+}
+.cell7, .cell8, .cell9 {
+    border-bottom: none;
 }
