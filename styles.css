@@ -1,0 +1,28 @@
+*, *::before, *::after {
+    margin: 0;
+}
+
+:root {
+    --default-cell-size: 100px
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.board {
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    margin: 20px;
+}
+
+.cell {
+    width: var(--default-cell-size);
+    height: var(--default-cell-size);
+    border: 1px solid black;
+}
