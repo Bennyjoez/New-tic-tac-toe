@@ -58,6 +58,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    display: none;
 }
 .winningMessage .message {
     font-size: 5rem;
