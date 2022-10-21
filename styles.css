@@ -6,6 +6,7 @@
 :root {
     --default-cell-size: 100px;
     --mark-size: calc(var(--default-cell-size) * 0.9);
+    --hover-color: rgb(163, 163, 163);
 }
 
 .container {
@@ -114,7 +115,9 @@
 /* setting the o's and the x's */
 
 .cell.x::before,
-.cell.x::after {
+.cell.x::after,
+.board.x .cell:not(.cell.x):not(.cell.circle):hover::before, 
+.board.x .cell:not(.cell.x):not(.cell.circle):hover::after {
     content: '';
     width: calc(var(--mark-size) * 0.15);
     height: var(--mark-size);
@@ -122,25 +125,41 @@
     position: absolute;
 }
 
-.cell.x::before {
+.cell.x::before,
+.board.x .cell:not(.cell.x):not(.cell.circle):hover::before {
     transform: rotate(45deg);
 }
-.cell.x::after {
+.cell.x::after,
+.board.x .cell:not(.cell.x):not(.cell.circle):hover::after {
     transform: rotate(-45deg);
 }
 
-.cell.circle::before, .cell.circle::after {
+.cell.circle::before,
+.cell.circle::after,
+.board.circle .cell:not(.cell.x):not(.cell.circle):hover::before,
+.board.circle .cell:not(.cell.x):not(.cell.circle):hover::after {
     content: '';
     border-radius: 50%;
     position: absolute;
 }
-.cell.circle::before {
+.cell.circle::before,
+.board.circle .cell:not(.cell.x):not(.cell.circle):hover::before {
     height: var(--mark-size);
     width: var(--mark-size);
     background-color: black;
 }
-.cell.circle::after {
+.cell.circle::after,
+.board.circle .cell:not(.cell.x):not(.cell.circle):hover::after {
     height: calc(var(--mark-size) * 0.7);
     width: calc(var(--mark-size) * 0.7);
     background-color: white;
+}
+
+.board.x .cell:not(.cell.x):not(.cell.circle):hover::before,
+.board.x .cell:not(.cell.x):not(.cell.circle):hover::after {
+    background-color: var(--hover-color);
+}
+
+.board.circle .cell:not(.cell.x):not(.cell.circle):hover::before {
+    background-color: var(--hover-color);
 }
