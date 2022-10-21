@@ -15,6 +15,34 @@
     align-items: center;
 }
 
+.players {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.players > * {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-style: italic;
+}
+.players input {
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid gray;
+    height: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(30, 92, 72);
+    font-style: oblique;
+}
+.player2 {
+    margin-left: 10px;
+}
+
 .board {
     display: grid;
     grid-template-columns: repeat(3, auto);
