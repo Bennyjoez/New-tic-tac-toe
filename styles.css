@@ -1,9 +1,11 @@
 *, *::before, *::after {
     margin: 0;
+    box-sizing: border-box;
 }
 
 :root {
-    --default-cell-size: 100px
+    --default-cell-size: 100px;
+    --mark-size: calc(var(--default-cell-size) * 0.9);
 }
 
 .container {
@@ -55,6 +57,10 @@
     margin: 0;
     border: 2px solid black;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .cell1, .cell2, .cell3 {
@@ -103,4 +109,38 @@
     background-color: black;
     border-color: white;
     color: white;
+}
+
+/* setting the o's and the x's */
+
+.cell.x::before,
+.cell.x::after {
+    content: '';
+    width: calc(var(--mark-size) * 0.15);
+    height: var(--mark-size);
+    background-color: black;
+    position: absolute;
+}
+
+.cell.x::before {
+    transform: rotate(45deg);
+}
+.cell.x::after {
+    transform: rotate(-45deg);
+}
+
+.cell.circle::before, .cell.circle::after {
+    content: '';
+    border-radius: 50%;
+    position: absolute;
+}
+.cell.circle::before {
+    height: var(--mark-size);
+    width: var(--mark-size);
+    background-color: black;
+}
+.cell.circle::after {
+    height: calc(var(--mark-size) * 0.7);
+    width: calc(var(--mark-size) * 0.7);
+    background-color: white;
 }
