@@ -8,6 +8,39 @@
     const restartButton = document.querySelector('#restartButton');
     const X_CLASS = 'x';
     const CIRCLE_CLASS = 'circle';
-    let currentClass;
+    let currentPlayer;
 
+    startGame()
+    function startGame() {
+        currentPlayer = playerX;
+        gameCells.forEach(cell => {
+            cell.addEventListener('click', handleClick)
+        });
+    }
+
+    function handleClick(e) {        
+        placeMark(e, currentPlayer);
+        changePlayer();
+    }
+
+    function placeMark(e, currentPlayer) {
+        board.classList.remove(X_CLASS);
+        board.classList.remove(CIRCLE_CLASS);
+        if(currentPlayer === playerX) {
+            e.target.classList.add(X_CLASS);
+            board.classList.add(CIRCLE_CLASS)
+        } else if (currentPlayer === playerO) {
+            e.target.classList.add(CIRCLE_CLASS)
+            board.classList.add(X_CLASS)
+        }
+
+    }
+
+    function changePlayer() {
+        if(currentPlayer === playerX) {
+            currentPlayer = playerO
+        } else {
+            currentPlayer = playerX
+        }
+    }
 })();
