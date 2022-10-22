@@ -13,16 +13,28 @@
     ]
     const winningMessageElement = document.querySelector('.winningMessage');
     const winningMessage = document.querySelector('.message');
-    const playerX = document.querySelector('#playerX').value;
-    const playerO = document.querySelector('#playerO').value;
     const restartButton = document.querySelector('#restartButton');
     const X_CLASS = 'x';
     const CIRCLE_CLASS = 'circle';
+    let playerX = document.querySelector('#playerX').value;
+    let playerO = document.querySelector('#playerO').value;
     let currentPlayer;
+
+
+    restartButton.addEventListener('click', startGame)
 
     startGame()
     function startGame() {
         currentPlayer = playerX;
+        gameCells.forEach(cell => {
+            cell.classList.remove(X_CLASS);
+            cell.classList.remove(CIRCLE_CLASS);
+        })
+        board.classList.remove(X_CLASS);
+        board.classList.remove(CIRCLE_CLASS);
+        winningMessageElement.classList.remove('show');
+
+
         gameCells.forEach(cell => {
             cell.addEventListener('click', handleClick, {once:true})
         });
