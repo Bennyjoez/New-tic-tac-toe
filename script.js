@@ -16,6 +16,8 @@
         gameCells.forEach(cell => {
             cell.addEventListener('click', handleClick)
         });
+
+        board.classList.add('x')
     }
 
     function handleClick(e) {        
@@ -24,23 +26,27 @@
     }
 
     function placeMark(e, currentPlayer) {
-        board.classList.remove(X_CLASS);
-        board.classList.remove(CIRCLE_CLASS);
+        // board.classList.remove(X_CLASS);
+        // board.classList.remove(CIRCLE_CLASS);
         if(currentPlayer === playerX) {
             e.target.classList.add(X_CLASS);
-            board.classList.add(CIRCLE_CLASS)
+            // board.classList.add(CIRCLE_CLASS)
         } else if (currentPlayer === playerO) {
             e.target.classList.add(CIRCLE_CLASS)
-            board.classList.add(X_CLASS)
+            // board.classList.add(X_CLASS)
         }
 
     }
 
     function changePlayer() {
+        board.classList.remove(X_CLASS);
+        board.classList.remove(CIRCLE_CLASS);
         if(currentPlayer === playerX) {
-            currentPlayer = playerO
+            currentPlayer = playerO;
+            board.classList.add(CIRCLE_CLASS);
         } else {
-            currentPlayer = playerX
+            currentPlayer = playerX;
+            board.classList.add(X_CLASS);
         }
     }
 })();
