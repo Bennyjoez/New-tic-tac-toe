@@ -41,6 +41,7 @@
     font-weight: bold;
     color: rgb(30, 92, 72);
     font-style: oblique;
+    text-transform: capitalize;
 }
 .player2 {
     margin-left: 10px;
@@ -95,6 +96,11 @@
     align-items: center;
     display: none;
 }
+
+.show {
+    display: flex;
+}
+
 .winningMessage .message {
     font-size: 5rem;
     color: white;
