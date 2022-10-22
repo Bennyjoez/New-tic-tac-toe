@@ -30,12 +30,13 @@
     font-size: 1.5rem;
     font-weight: bold;
     font-style: italic;
+    margin-top: 10px;
 }
 .players input {
     border-radius: 5px;
     outline: none;
     border: 1px solid gray;
-    height: 20px;
+    height: 30px;
     text-align: center;
     font-size: 18px;
     font-weight: bold;
